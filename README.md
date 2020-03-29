@@ -22,6 +22,22 @@ $> ./jarvis.sh -i
 ```
 >More info on the site [installation page](http://openjarvis.com/content/installation).
 
+Pour installer snowboy sur debian ou autre système linux :
+# Install snowboy
+export JARVIS_PATH=/home/USER/git/jarvis # Path to Jarvis directory
+git clone https://github.com/Kitt-AI/snowboy.git
+sudo apt-get install python-pyaudio python3-pyaudio sox libatlas-base-dev swig
+pip install pyaudio
+cd snowboy/swig/Python3 # If you use Python3
+#cd snowboy/swig/Python # If you use Python2
+make
+cp _snowboydetect.so $JARVIS_PATH/stt_engines/snowboy/
+cp snowboydetect.py $JARVIS_PATH/stt_engines/snowboy/
+cd ../..
+cp -r resources $JARVIS_PATH/stt_engines/snowboy/
+
+
+
 ### Usage
 ```
 $> jarvis
